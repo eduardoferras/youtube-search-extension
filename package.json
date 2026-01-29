@@ -1,6 +1,7 @@
 {
 	"name": "extension-yt-search",
 	"version": "1.0.0",
+	"private": true,
 	"description": "Context menu to search selected text on Youtube",
 	"main": "index.js",
 	"scripts": {
