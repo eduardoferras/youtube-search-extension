@@ -14,9 +14,9 @@
 		"baseUrl": ".",
 		"removeComments": true,
 		"paths": {
-			"@/*": ["src/*"],
 			"@utils/*": ["src/utils/*"],
-			"@constants/*": ["src/constants/*"]
+			"@constants/*": ["src/constants/*"],
+			"@/*": ["src/*"]
 		}
 	},
 	"include": ["src/**/*.ts"],
