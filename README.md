@@ -15,13 +15,13 @@ Context menu to search selected text on Youtube.
 Make sure to install dependencies:
 
 ```bash
-npm install
+pnpm install --frozen-lockfile
 ```
 
 Then, build the extension:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Usage
