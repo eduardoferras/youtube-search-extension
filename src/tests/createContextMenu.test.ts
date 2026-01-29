@@ -1,55 +1,57 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { YOUTUBE_CONTEXT_MENU_ID } from '@/constants/contextMenu'
-import createContextMenu from '@/createContextMenu'
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
+import createContextMenu from "@/createContextMenu";
 
-describe('createContextMenu', () => {
-	const mockCreate = vi.fn()
-	const mockGetMessage = vi.fn()
-	const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+describe("createContextMenu", () => {
+  const mockCreate = vi.fn();
+  const mockGetMessage = vi.fn();
+  const mockConsoleError = vi
+    .spyOn(console, "error")
+    .mockImplementation(() => {});
 
-	beforeEach(() => {
-		vi.clearAllMocks()
+  beforeEach(() => {
+    vi.clearAllMocks();
 
-		global.chrome = {
-			contextMenus: {
-				create: mockCreate
-			},
-			i18n: {
-				getMessage: mockGetMessage
-			},
-			runtime: {
-				lastError: null
-			}
-		} as unknown as typeof chrome
-	})
+    global.chrome = {
+      contextMenus: {
+        create: mockCreate,
+      },
+      i18n: {
+        getMessage: mockGetMessage,
+      },
+      runtime: {
+        lastError: null,
+      },
+    } as unknown as typeof chrome;
+  });
 
-	afterEach(() => {
-		mockConsoleError.mockRestore()
-	})
+  afterEach(() => {
+    mockConsoleError.mockRestore();
+  });
 
-	it('should create the context menu with the correct parameters', () => {
-		mockGetMessage.mockReturnValue('Pesquisar no YouTube por "%s"')
+  it("should create the context menu with the correct parameters", () => {
+    mockGetMessage.mockReturnValue('Pesquisar no YouTube por "%s"');
 
-		createContextMenu()
+    createContextMenu();
 
-		expect(mockCreate).toHaveBeenCalledWith(
-			{
-				id: YOUTUBE_CONTEXT_MENU_ID,
-				title: 'Pesquisar no YouTube por "%s"',
-				contexts: ['selection']
-			},
-			expect.any(Function)
-		)
-	})
+    expect(mockCreate).toHaveBeenCalledWith(
+      {
+        id: YOUTUBE_CONTEXT_MENU_ID,
+        title: 'Pesquisar no YouTube por "%s"',
+        contexts: ["selection"],
+      },
+      expect.any(Function),
+    );
+  });
 
-	it('should not log an error if the context menu is successfully created', () => {
-		mockGetMessage.mockReturnValue('Pesquisar no YouTube por "%s"')
+  it("should not log an error if the context menu is successfully created", () => {
+    mockGetMessage.mockReturnValue('Pesquisar no YouTube por "%s"');
 
-		createContextMenu()
+    createContextMenu();
 
-		const callback = mockCreate.mock.calls[0][1]
-		callback()
+    const callback = mockCreate.mock.calls[0][1];
+    callback();
 
-		expect(mockConsoleError).not.toHaveBeenCalled()
-	})
-})
+    expect(mockConsoleError).not.toHaveBeenCalled();
+  });
+});

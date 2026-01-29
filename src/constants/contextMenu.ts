@@ -1,1 +1,1 @@
-export const YOUTUBE_CONTEXT_MENU_ID = 'YtSearchContextMenu'
+export const YOUTUBE_CONTEXT_MENU_ID = "YtSearchContextMenu";

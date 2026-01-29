@@ -16,7 +16,3 @@ logs
 .fleet
 .idea
 **/*.Identifier
-
-# vscode
-.vscode/*
-!.vscode/extensions.json

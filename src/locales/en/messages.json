@@ -1,28 +1,28 @@
 {
-	"extName": {
-		"message": "Youtube Search Context Menu",
-		"description": "The name of the extension"
-	},
-	"extDescription": {
-		"message": "Context menu to search selected text on Youtube.",
-		"description": "The description of the extension"
-	},
-	"contextMenuTitle": {
-		"message": "Search \"$query$\" on Youtube",
-		"description": "Context menu item to search YouTube for the selected text",
-		"placeholders": {
-			"query": {
-				"content": "$1"
-			}
-		}
-	},
-	"contextMenuError": {
-		"message": "Error creating context menu: $details$",
-		"description": "Generic error template. Expects error parameter to be passed in.",
-		"placeholders": {
-			"details": {
-				"content": "$1"
-			}
-		}
-	}
+  "extName": {
+    "message": "Youtube Search Context Menu",
+    "description": "The name of the extension"
+  },
+  "extDescription": {
+    "message": "Context menu to search selected text on Youtube.",
+    "description": "The description of the extension"
+  },
+  "contextMenuTitle": {
+    "message": "Search \"$query$\" on Youtube",
+    "description": "Context menu item to search YouTube for the selected text",
+    "placeholders": {
+      "query": {
+        "content": "$1"
+      }
+    }
+  },
+  "contextMenuError": {
+    "message": "Error creating context menu: $details$",
+    "description": "Generic error template. Expects error parameter to be passed in.",
+    "placeholders": {
+      "details": {
+        "content": "$1"
+      }
+    }
+  }
 }

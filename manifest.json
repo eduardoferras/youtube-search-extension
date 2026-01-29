@@ -1,18 +1,18 @@
 {
-	"manifest_version": 3,
-	"name": "__MSG_extName__",
-	"version": "1.0",
-	"description": "__MSG_extDescription__",
-	"icons": {
-		"16": "icons/youtube-16.png",
-		"32": "icons/youtube-32.png",
-		"48": "icons/youtube-48.png",
-		"128": "icons/youtube-128.png"
-	},
-	"background": {
-		"service_worker": "service-worker.mjs",
-		"type": "module"
-	},
-	"permissions": ["contextMenus"],
-	"default_locale": "en"
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "1.0",
+  "description": "__MSG_extDescription__",
+  "icons": {
+    "16": "icons/youtube-16.png",
+    "32": "icons/youtube-32.png",
+    "48": "icons/youtube-48.png",
+    "128": "icons/youtube-128.png"
+  },
+  "background": {
+    "service_worker": "service-worker.mjs",
+    "type": "module"
+  },
+  "permissions": ["contextMenus"],
+  "default_locale": "en"
 }

@@ -1,24 +1,24 @@
 {
-	"compilerOptions": {
-		"target": "ES2023",
-		"module": "node20",
-		"lib": ["ES2023", "DOM"],
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"strict": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"allowImportingTsExtensions": true,
-		"baseUrl": "./src",
-		"removeComments": true,
-		"paths": {
-			"@utils/*": ["utils/*"],
-			"@constants/*": ["constants/*"],
-			"@/*": ["*"]
-		}
-	},
-	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "node20",
+    "lib": ["ES2023", "DOM"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "baseUrl": "./src",
+    "removeComments": true,
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@constants/*": ["constants/*"],
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
