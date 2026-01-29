@@ -4,13 +4,13 @@ import getYoutubeSearchUrl from "@utils/getYoutubeSearchUrl.ts";
 import openTab from "@utils/openTab.ts";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@/utils/getYoutubeSearchUrl", () => ({
+vi.mock("@utils/getYoutubeSearchUrl", () => ({
   default: vi.fn(
     (text: string) => `https://youtube.com/results?search_query=${text}`,
   ),
 }));
 
-vi.mock("@/utils/openTab", () => ({
+vi.mock("@utils/openTab", () => ({
   default: vi.fn(),
 }));
 
