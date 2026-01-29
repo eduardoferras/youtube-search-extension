@@ -10,7 +10,7 @@
     "128": "icons/youtube-128.png"
   },
   "background": {
-    "service_worker": "service-worker.mjs",
+    "service_worker": "service-worker.js",
     "type": "module"
   },
   "permissions": ["contextMenus"],
