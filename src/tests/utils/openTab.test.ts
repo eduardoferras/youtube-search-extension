@@ -1,5 +1,5 @@
+import openTab from "@utils/openTab.ts";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import openTab from "@/utils/openTab";
 
 describe("openTab", () => {
   beforeEach(() => {

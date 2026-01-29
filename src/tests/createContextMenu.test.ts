@@ -1,6 +1,6 @@
+import { YOUTUBE_CONTEXT_MENU_ID } from "@constants/contextMenu.ts";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
-import createContextMenu from "@/createContextMenu";
+import createContextMenu from "@/createContextMenu.ts";
 
 describe("createContextMenu", () => {
   const mockCreate = vi.fn();
