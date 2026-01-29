@@ -1,7 +1,10 @@
 import { defineConfig } from 'tsup'
 import { resolve } from 'node:path'
-import Asset from './src/types/asset.types'
 import { cpSync } from 'node:fs'
+interface AssetFile {
+	from: string
+	to: string
+}
 
 export default defineConfig({
 	entry: ['src/service-worker.ts'],
@@ -12,7 +15,7 @@ export default defineConfig({
 	sourcemap: true,
 	minify: true,
 	async onSuccess() {
-		const assetsFiles: Asset[] = [
+		const assetsFiles: AssetFile[] = [
 			{
 				from: resolve(__dirname, 'manifest.json'),
 				to: resolve(__dirname, 'dist', 'manifest.json')
