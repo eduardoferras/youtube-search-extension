@@ -1,8 +1,7 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"editorconfig.editorconfig",
-		"vitest.explorer"
-	]
+  "recommendations": [
+    "biomejs.biome",
+    "editorconfig.editorconfig",
+    "vitest.explorer"
+  ]
 }
