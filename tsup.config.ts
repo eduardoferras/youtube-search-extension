@@ -1,18 +1,21 @@
 import { defineConfig } from 'tsup'
 import { resolve } from 'node:path'
-import copyStaticFiles from './src/utils/copyStaticFiles'
-import Asset from './src/types/asset.types'
+import { cpSync } from 'node:fs'
+interface AssetFile {
+	from: string
+	to: string
+}
 
 export default defineConfig({
 	entry: ['src/service-worker.ts'],
-	format: ['cjs'],
+	format: ['esm'],
 	target: 'es2023',
 	clean: true,
 	outDir: 'dist',
 	sourcemap: true,
 	minify: true,
 	async onSuccess() {
-		const assets: Asset[] = [
+		const assetsFiles: AssetFile[] = [
 			{
 				from: resolve(__dirname, 'manifest.json'),
 				to: resolve(__dirname, 'dist', 'manifest.json')
@@ -27,6 +30,8 @@ export default defineConfig({
 			}
 		]
 
-		copyStaticFiles(assets)
+		assetsFiles.forEach((asset) => {
+			cpSync(asset.from, asset.to, { recursive: true })
+		})
 	}
 })
