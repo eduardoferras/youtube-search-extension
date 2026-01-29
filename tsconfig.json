@@ -16,6 +16,7 @@
     "paths": {
       "@utils/*": ["utils/*"],
       "@constants/*": ["constants/*"],
+      "@handlers/*": ["handlers/*"],
       "@/*": ["*"]
     }
   },
