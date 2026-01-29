@@ -12,10 +12,12 @@
 		"lint:fix": "eslint . --ext .ts,.js --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"build": "tsup"
+		"build": "tsup",
+		"changeset": "changeset"
 	},
 	"author": "Eduardo Ferras",
 	"devDependencies": {
+		"@changesets/cli": "2.29.8",
 		"@eslint/js": "9.38.0",
 		"@types/chrome": "0.1.24",
 		"@vitest/coverage-v8": "4.0.3",
