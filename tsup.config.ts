@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 import { resolve } from 'node:path'
-import copyStaticFiles from './src/utils/copyStaticFiles'
 import Asset from './src/types/asset.types'
+import { cpSync } from 'node:fs'
 
 export default defineConfig({
 	entry: ['src/service-worker.ts'],
@@ -12,7 +12,7 @@ export default defineConfig({
 	sourcemap: true,
 	minify: true,
 	async onSuccess() {
-		const assets: Asset[] = [
+		const assetsFiles: Asset[] = [
 			{
 				from: resolve(__dirname, 'manifest.json'),
 				to: resolve(__dirname, 'dist', 'manifest.json')
@@ -27,6 +27,8 @@ export default defineConfig({
 			}
 		]
 
-		copyStaticFiles(assets)
+		assetsFiles.forEach((asset) => {
+			cpSync(asset.from, asset.to, { recursive: true })
+		})
 	}
 })
