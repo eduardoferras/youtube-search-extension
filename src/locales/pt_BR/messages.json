@@ -1,28 +1,28 @@
 {
-	"extName": {
-		"message": "Pesquisa no YouTube pelo Menu de Contexto",
-		"description": "Nome da extensão"
-	},
-	"extDescription": {
-		"message": "Adiciona uma opção ao menu de contexto para pesquisar o texto selecionado no YouTube.",
-		"description": "Descrição da extensão"
-	},
-	"contextMenuTitle": {
-		"message": "Pesquisar \"$query$\" no YouTube",
-		"description": "Texto do item do menu de contexto para pesquisar o conteúdo selecionado no YouTube",
-		"placeholders": {
-			"query": {
-				"content": "$1"
-			}
-		}
-	},
-	"contextMenuError": {
-		"message": "Erro ao criar o menu de contexto: $details$",
-		"description": "Mensagem genérica de erro. Espera que o detalhe do erro seja passado como parâmetro.",
-		"placeholders": {
-			"details": {
-				"content": "$1"
-			}
-		}
-	}
+  "extName": {
+    "message": "Pesquisa no YouTube pelo Menu de Contexto",
+    "description": "Nome da extensão"
+  },
+  "extDescription": {
+    "message": "Adiciona uma opção ao menu de contexto para pesquisar o texto selecionado no YouTube.",
+    "description": "Descrição da extensão"
+  },
+  "contextMenuTitle": {
+    "message": "Pesquisar \"$query$\" no YouTube",
+    "description": "Texto do item do menu de contexto para pesquisar o conteúdo selecionado no YouTube",
+    "placeholders": {
+      "query": {
+        "content": "$1"
+      }
+    }
+  },
+  "contextMenuError": {
+    "message": "Erro ao criar o menu de contexto: $details$",
+    "description": "Mensagem genérica de erro. Espera que o detalhe do erro seja passado como parâmetro.",
+    "placeholders": {
+      "details": {
+        "content": "$1"
+      }
+    }
+  }
 }

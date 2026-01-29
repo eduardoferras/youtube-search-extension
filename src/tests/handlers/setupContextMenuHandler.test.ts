@@ -1,84 +1,91 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock('@/utils/getYoutubeSearchUrl', () => ({
-	default: vi.fn((text: string) => `https://youtube.com/results?search_query=${text}`)
-}))
+vi.mock("@/utils/getYoutubeSearchUrl", () => ({
+  default: vi.fn(
+    (text: string) => `https://youtube.com/results?search_query=${text}`,
+  ),
+}));
 
-vi.mock('@/utils/openTab', () => ({
-	default: vi.fn()
-}))
+vi.mock("@/utils/openTab", () => ({
+  default: vi.fn(),
+}));
 
-import getYoutubeSearchUrl from '@/utils/getYoutubeSearchUrl'
-import openTab from '@/utils/openTab'
-import { YOUTUBE_CONTEXT_MENU_ID } from '@/constants/contextMenu'
-import setupContextMenuHandler from '@/handlers/setupContextMenuHandler'
+import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
+import setupContextMenuHandler from "@/handlers/setupContextMenuHandler";
+import getYoutubeSearchUrl from "@/utils/getYoutubeSearchUrl";
+import openTab from "@/utils/openTab";
 
-describe('setupContextMenuHandler', () => {
-	beforeEach(() => {
-		vi.clearAllMocks()
+describe("setupContextMenuHandler", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
 
-		global.chrome = {
-			contextMenus: {
-				onClicked: {
-					addListener: vi.fn()
-				}
-			}
-		} as unknown as typeof chrome
-	})
+    global.chrome = {
+      contextMenus: {
+        onClicked: {
+          addListener: vi.fn(),
+        },
+      },
+    } as unknown as typeof chrome;
+  });
 
-	it('should register the context menu listener', () => {
-		setupContextMenuHandler()
-		expect(chrome.contextMenus.onClicked.addListener).toHaveBeenCalled()
-	})
+  it("should register the context menu listener", () => {
+    setupContextMenuHandler();
+    expect(chrome.contextMenus.onClicked.addListener).toHaveBeenCalled();
+  });
 
-	it('should call getYoutubeSearchUrl and openTab', () => {
-		setupContextMenuHandler()
+  it("should call getYoutubeSearchUrl and openTab", () => {
+    setupContextMenuHandler();
 
-		const listener = (chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>).mock
-			.calls[0][0]
+    const listener = (
+      chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>
+    ).mock.calls[0][0];
 
-		const mockInfo = {
-			menuItemId: YOUTUBE_CONTEXT_MENU_ID,
-			selectionText: 'Vitest tutorial'
-		}
+    const mockInfo = {
+      menuItemId: YOUTUBE_CONTEXT_MENU_ID,
+      selectionText: "Vitest tutorial",
+    };
 
-		listener(mockInfo)
+    listener(mockInfo);
 
-		expect(getYoutubeSearchUrl).toHaveBeenCalledWith('Vitest tutorial')
-		expect(openTab).toHaveBeenCalledWith('https://youtube.com/results?search_query=Vitest tutorial')
-	})
+    expect(getYoutubeSearchUrl).toHaveBeenCalledWith("Vitest tutorial");
+    expect(openTab).toHaveBeenCalledWith(
+      "https://youtube.com/results?search_query=Vitest tutorial",
+    );
+  });
 
-	it('should not call getYoutubeSearchUrl or openTab if selectionText is empty', () => {
-		setupContextMenuHandler()
+  it("should not call getYoutubeSearchUrl or openTab if selectionText is empty", () => {
+    setupContextMenuHandler();
 
-		const listener = (chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>).mock
-			.calls[0][0]
+    const listener = (
+      chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>
+    ).mock.calls[0][0];
 
-		const mockInfo = {
-			menuItemId: YOUTUBE_CONTEXT_MENU_ID,
-			selectionText: ''
-		}
+    const mockInfo = {
+      menuItemId: YOUTUBE_CONTEXT_MENU_ID,
+      selectionText: "",
+    };
 
-		listener(mockInfo)
+    listener(mockInfo);
 
-		expect(getYoutubeSearchUrl).not.toHaveBeenCalled()
-		expect(openTab).not.toHaveBeenCalled()
-	})
+    expect(getYoutubeSearchUrl).not.toHaveBeenCalled();
+    expect(openTab).not.toHaveBeenCalled();
+  });
 
-	it('should not call getYoutubeSearchUrl or openTab if menuItemId is not YOUTUBE_CONTEXT_MENU_ID', () => {
-		setupContextMenuHandler()
+  it("should not call getYoutubeSearchUrl or openTab if menuItemId is not YOUTUBE_CONTEXT_MENU_ID", () => {
+    setupContextMenuHandler();
 
-		const listener = (chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>).mock
-			.calls[0][0]
+    const listener = (
+      chrome.contextMenus.onClicked.addListener as ReturnType<typeof vi.fn>
+    ).mock.calls[0][0];
 
-		const mockInfo = {
-			menuItemId: 'OUTRO_ID',
-			selectionText: 'Vitest tutorial'
-		}
+    const mockInfo = {
+      menuItemId: "OUTRO_ID",
+      selectionText: "Vitest tutorial",
+    };
 
-		listener(mockInfo)
+    listener(mockInfo);
 
-		expect(getYoutubeSearchUrl).not.toHaveBeenCalled()
-		expect(openTab).not.toHaveBeenCalled()
-	})
-})
+    expect(getYoutubeSearchUrl).not.toHaveBeenCalled();
+    expect(openTab).not.toHaveBeenCalled();
+  });
+});

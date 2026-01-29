@@ -4,6 +4,6 @@
  * @returns {string} The YouTube search URL.
  */
 export default function getYoutubeSearchUrl(query: string): string {
-	const encodedQuery = encodeURIComponent(query)
-	return `https://www.youtube.com/results?search_query=${encodedQuery}`
+  const encodedQuery = encodeURIComponent(query);
+  return `https://www.youtube.com/results?search_query=${encodedQuery}`;
 }
