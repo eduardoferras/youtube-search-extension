@@ -1,5 +1,5 @@
+import getYoutubeSearchUrl from "@utils/getYoutubeSearchUrl.ts";
 import { describe, expect, it } from "vitest";
-import getYoutubeSearchUrl from "@/utils/getYoutubeSearchUrl";
 
 describe("getYoutubeSearchUrl", () => {
   it("should return correct YouTube search URL for a simple query", () => {

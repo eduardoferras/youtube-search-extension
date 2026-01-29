@@ -1,4 +1,4 @@
-import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
+import { YOUTUBE_CONTEXT_MENU_ID } from "@constants/contextMenu.ts";
 
 export default function createContextMenu() {
   chrome.contextMenus.create(

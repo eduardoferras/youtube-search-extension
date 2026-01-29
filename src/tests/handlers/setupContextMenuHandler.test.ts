@@ -1,3 +1,7 @@
+import { YOUTUBE_CONTEXT_MENU_ID } from "@constants/contextMenu.ts";
+import setupContextMenuHandler from "@handlers/setupContextMenuHandler.ts";
+import getYoutubeSearchUrl from "@utils/getYoutubeSearchUrl.ts";
+import openTab from "@utils/openTab.ts";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("@/utils/getYoutubeSearchUrl", () => ({
@@ -9,11 +13,6 @@ vi.mock("@/utils/getYoutubeSearchUrl", () => ({
 vi.mock("@/utils/openTab", () => ({
   default: vi.fn(),
 }));
-
-import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
-import setupContextMenuHandler from "@/handlers/setupContextMenuHandler";
-import getYoutubeSearchUrl from "@/utils/getYoutubeSearchUrl";
-import openTab from "@/utils/openTab";
 
 describe("setupContextMenuHandler", () => {
   beforeEach(() => {

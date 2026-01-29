@@ -1,6 +1,6 @@
-import { YOUTUBE_CONTEXT_MENU_ID } from "@/constants/contextMenu";
-import getYoutubeSearchUrl from "@/utils/getYoutubeSearchUrl";
-import openTab from "@/utils/openTab";
+import { YOUTUBE_CONTEXT_MENU_ID } from "@constants/contextMenu.ts";
+import getYoutubeSearchUrl from "@utils/getYoutubeSearchUrl.ts";
+import openTab from "@utils/openTab.ts";
 
 export default function setupContextMenuHandler() {
   chrome.contextMenus.onClicked.addListener((info) => {
