@@ -11,12 +11,12 @@
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"allowImportingTsExtensions": true,
-		"baseUrl": ".",
+		"baseUrl": "./src",
 		"removeComments": true,
 		"paths": {
-			"@utils/*": ["src/utils/*"],
-			"@constants/*": ["src/constants/*"],
-			"@/*": ["src/*"]
+			"@utils/*": ["utils/*"],
+			"@constants/*": ["constants/*"],
+			"@/*": ["*"]
 		}
 	},
 	"include": ["src/**/*.ts"],
