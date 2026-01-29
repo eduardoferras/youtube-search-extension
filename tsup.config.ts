@@ -8,7 +8,7 @@ interface AssetFile {
 
 export default defineConfig({
 	entry: ['src/service-worker.ts'],
-	format: ['cjs'],
+	format: ['esm'],
 	target: 'es2023',
 	clean: true,
 	outDir: 'dist',
