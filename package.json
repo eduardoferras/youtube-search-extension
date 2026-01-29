@@ -13,7 +13,9 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"build": "tsup",
-		"changeset": "changeset"
+		"changeset": "changeset",
+		"version": "changeset version && pnpm install --no-frozen-lockfile",
+		"release": "changeset publish"
 	},
 	"author": "Eduardo Ferras",
 	"devDependencies": {
